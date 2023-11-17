@@ -29,6 +29,7 @@ p         = motorModel.data.p;
 Rs        = motorModel.data.Rs;
 
 Vmax = Vdc/sqrt(3);
+% Vmax = Vdc;
 
 if strcmp(motorType,'IM')
     IM = motorModel.FluxMap_dq.IM;

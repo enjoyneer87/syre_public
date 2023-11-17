@@ -6,12 +6,12 @@ geodata={
 "p" :3,   #pole pair
 "g" :0.700000,   #air gap thickness
 "nlay" :1,   #layer of rotor barrier
-"PM_CS":[[46.0023,59.9243,],[42.6352,18.5216,],[0.98942,0.62033,],[0.14506,0.78434,],], #Coordinate system magnet: 0-x 1-y 2-xvect 3-yvect
+"PM_CS":[[45.9407,60.2576,],[43.0557,18.2579,],[0.98942,0.62033,],[0.14506,0.78434,],], #Coordinate system magnet: 0-x 1-y 2-xvect 3-yvect
 "q":3,  #slot per cave per phase
 "radial_ribs_split":0, #area added by split barrier
 "n_PM":2, #number of permanent magnet (number of magnetic segments)
 "l":134.000000, #stack length
-"filepath":"C:/Users/paolo.ragazzo/Desktop/syre/motorExamples/", #motor"s folder
+"filepath":"Z:/01_Codes_Projects/Torino_syRe/motorExamples/", #motor"s folder
 "filename":"TeslaModel3.mat", #motor"s file mat name
 }
 #struct material names
@@ -22,7 +22,7 @@ material={
 "slotcond":"Copper",
 "magnet":"BMN-52UH",
 }
-with open('C:/Users/paolo.ragazzo/Desktop/syre/syreExport/syre_AnsysMaxwell/temp/temp.pkl', 'wb') as export:
+with open('Z:/01_Codes_Projects/Torino_syRe/syreExport/syre_AnsysMaxwell/temp/temp.pkl', 'wb') as export:
     pickle.dump([geodata,material],export,protocol=2)
 sys.path.append(r"C:/Program Files/AnsysEM/v222/Win64")
 sys.path.append(r"C:/Program Files/AnsysEM/v222/Win64/PythonFiles/DesktopPlugin")
@@ -34,7 +34,7 @@ oProject = oDesktop.NewProject()
 oProject.InsertDesign("Maxwell 2D", "Maxwell2DDesign1", "Transient", "")
 oDesign = oProject.SetActiveDesign("Maxwell2DDesign1")
 oEditor = oDesign.SetActiveEditor("3D Modeler")
-oProject.SaveAs("C:/Users/paolo.ragazzo/Desktop/syre/motorExamples/TeslaModel3.aedt", True)
+oProject.SaveAs("Z:/01_Codes_Projects/Torino_syRe/motorExamples/TeslaModel3.aedt", True)
 oDesktop.ClearMessages("", "",3)
 #########Add materials to library
 #########Air##########

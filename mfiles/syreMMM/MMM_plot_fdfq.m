@@ -32,8 +32,8 @@ resFolder = [motName '_results\MMM results\' 'dq Flux Maps - ' int2str(motorMode
 figNames{1} = 'FluxD';
 figNames{2} = 'FluxQ';
 figNames{3} = 'Torque';
-figNames{4} = 'TorRipPP';
-figNames{5} = 'TorRip';
+% figNames{4} = 'TorRipPP';
+% figNames{5} = 'TorRip';
 
 for ii=1:length(figNames)
     hfig(ii) = figure();
@@ -76,8 +76,8 @@ end
 surf(hax(1),Id,Iq,Fd,'FaceColor','interp','EdgeColor','interp')
 surf(hax(2),Id,Iq,Fq,'FaceColor','interp','EdgeColor','interp')
 surf(hax(3),Id,Iq,T,'FaceColor','interp','EdgeColor','interp')
-surf(hax(4),Id,Iq,dTpp,'FaceColor','interp','EdgeColor','interp')
-surf(hax(5),Id,Iq,dT,'FaceColor','interp','EdgeColor','interp')
+% surf(hax(4),Id,Iq,dTpp,'FaceColor','interp','EdgeColor','interp')
+% surf(hax(5),Id,Iq,dT,'FaceColor','interp','EdgeColor','interp')
 
 %% Curves
 hfig(6) = figure();

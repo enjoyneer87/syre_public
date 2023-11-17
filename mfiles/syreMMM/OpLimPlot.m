@@ -37,7 +37,9 @@ MPFPA = motorModel.controlTrajectories.MPFPA;
 
 % create figures
 for ii=1:6
-    hfig(ii) = figure();
+    % hfig(ii) = figure();
+     hfig(ii) = figure(ii);
+
     figSetting()
     hax(ii) = axes('OuterPosition',[0 0 1 1],...
         'XLim',[0 motorModel.data.nmax]);
@@ -71,7 +73,7 @@ for ii=1:6
     end
 end
 
-hfig(7) = figure();
+hfig(7) = figure(7);
 figSetting()
 hax(7) = axes('OuterPosition',[0 0 1 1],...
     'DataAspectRatio',[1 1 1],...
@@ -81,12 +83,16 @@ xlabel('$i_d$ [A]')
 ylabel('$i_q$ [A]')
 set(hfig(7),'FileName',[pathname resFolder 'DQplane.fig'])
 [c,h] = contour(Id,Iq,abs(Id+j*Iq),'-k','DisplayName','$I$');
+% hold on
 clabel(c,h)
 [c,h] = contour(Id,Iq,T,'-b','DisplayName','$T$');
+% hold on
 clabel(c,h)
 
 plot(MTPA.id,MTPA.iq,'-k','DisplayName','MTPA')
+hold on
 plot(MTPV.id,MTPV.iq,':k','DisplayName','MTPV')
+hold on
 % plot(MPFPA.id,MPFPA.iq,'--k','DisplayName','MPFPA')
 
 for ii=1:length(Plim)
@@ -94,6 +100,7 @@ for ii=1:length(Plim)
     for jj=1:length(hax)
         set(hax(jj),'ColorOrderIndex',ii);
     end
+
     iName = ['$I=' num2str(round(Ivect(ii),2)) '$ A'];
     index = Plim{ii}.n<=nmax;
     plot(hax(1),Plim{ii}.n(index),Plim{ii}.T(index),'DisplayName',iName);

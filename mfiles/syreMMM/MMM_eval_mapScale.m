@@ -79,8 +79,6 @@ for ii=1:length(index)
 
     n(ii) = real(w_A)*30/pi/p;
     T(ii) = interp1(abs(id_MTPA+j*iq_MTPA),T_MTPA,Imax);
-
-
 end
 
 loss = 3/2*Rs.*abs(id+j*iq).^2;

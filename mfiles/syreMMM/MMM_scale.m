@@ -13,6 +13,7 @@
 %    limitations under the License.
 
 function [motorModel] = MMM_scale(motorModel,scaleFactors)
+
 % Change number of turns, stack length and dq leakage inductances of a
 % motor model.
 
@@ -145,10 +146,10 @@ if ~isempty(motorModel.FluxMap_dqt)
 %     end
     motorModel.FluxMap_dqt = dqtMap;
 end
-
-if isfield(dqtMap,'sets')
-    dqtMap = rmfield(dqtMap,'sets');
-end
+% 
+% if isfield(dqtMap,'sets')
+%     dqtMap = rmfield(dqtMap,'sets');
+% end
 
 % Demagnetization update
 if ~isempty(motorModel.DemagnetizationLimit)
