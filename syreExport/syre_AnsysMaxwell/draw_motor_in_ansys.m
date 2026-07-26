@@ -5,7 +5,7 @@ clear
 % [filename, filepath] = uigetfile('\*.mat');
 % addpath(filepath);
 % load(filename)
-
+% filepath =pwd
 filepath = dataSet.currentpathname;
 filename = dataSet.currentfilename;
 load([filepath filename]);
@@ -18,8 +18,8 @@ currentFolder = [currentFolder '\syreExport\syre_AnsysMaxwell'];
 currentFolder = strrep(currentFolder,'\','/');
 %iron python inside ansys path
 %ipypath='"C:\Program Files\AnsysEM\AnsysEM20.1\Win64\common\IronPython\ipy64.exe" "';
-ipypath = '" C:\Program Files\AnsysEM\AnsysEM20.1\Win64\common\IronPython" ';
-defipypath  = 'C:\Program Files\AnsysEM\AnsysEM20.1\Win64\common\IronPython\ipy64.exe';
+ipypath = '" C:\Program Files\AnsysEM\AnsysEM24.2\Win64\common\IronPython" ';
+defipypath  = 'C:\Program Files\AnsysEM\AnsysEM24.2\Win64\common\IronPython\ipy64.exe';
 %[ipy64exe, ipypath] = uigetfile(defipypath,'Select ipy64.exe (Ansys) Directory');
 %ipypath=strcat('"',ipypath,ipy64exe,'" "');
 ipy64exe = 'ipy64.exe';
@@ -675,23 +675,23 @@ clear export
 
 
 %%%%%%%%%%%%%%%%%%Programm Start%%%%%%%%%%%%%%%%%%%%%%%%
-
-start={
-    'sys.path.append(r"C:/Program Files/AnsysEM/AnsysEM20.1/Win64")'
-    'sys.path.append(r"C:/Program Files/AnsysEM/AnsysEM20.1/Win64/PythonFiles/DesktopPlugin")'
-    'import ScriptEnv'
-    ''
-    'ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")'
-    'oDesktop.RestoreWindow()'
-    'oProject = oDesktop.NewProject()'
-    'oProject.InsertDesign("Maxwell 2D", "Maxwell2DDesign1", "Transient", "")'
-    'oDesign = oProject.SetActiveDesign("Maxwell2DDesign1")'
-    'oEditor = oDesign.SetActiveEditor("3D Modeler")'
-    'oProject.SaveAs("%s%s.aedt", True)'
-    'oDesktop.ClearMessages("", "",3)'};
-str=sprintf('%s\n',start{:});
-fprintf(pyfile,str,filepath,erase(filename,".mat"));
-clear start
+% 
+% start={
+%     'sys.path.append(r"C:/Program Files/AnsysEM/AnsysEM24.1/Win64")'
+%     'sys.path.append(r"C:/Program Files/AnsysEM/AnsysEM24.1/Win64/PythonFiles/DesktopPlugin")'
+%     'import ScriptEnv'
+%     ''
+%     'ScriptEnv.Initialize("Ansoft.ElectronicsDesktop")'
+%     'oDesktop.RestoreWindow()'
+%     'oProject = oDesktop.NewProject()'
+%     'oProject.InsertDesign("Maxwell 2D", "Maxwell2DDesign1", "Transient", "")'
+%     'oDesign = oProject.SetActiveDesign("Maxwell2DDesign1")'
+%     'oEditor = oDesign.SetActiveEditor("3D Modeler")'
+%     'oProject.SaveAs("%s%s.aedt", True)'
+%     'oDesktop.ClearMessages("", "",3)'};
+% str=sprintf('%s\n',start{:});
+% fprintf(pyfile,str,filepath,erase(filename,".mat"));
+% clear start
 
 %%%%%%%%%%%%%%%%Air%%%%%%%%%%%%%%
 
@@ -1056,7 +1056,7 @@ clear runpy
 
 fclose(pyfile);
 
-sdfverger
+% sdfverger
 
 %from txt to py
 movefile('setup_draw_motor_in_ansys.txt','setup_draw_motor_in_ansys.py','f');

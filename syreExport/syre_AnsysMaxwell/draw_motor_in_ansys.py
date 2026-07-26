@@ -3,7 +3,7 @@ import pickle
 import os
 currentFolder = os.path.dirname(os.path.realpath(__file__))
 sys.path.append(r"C:\\Program Files\\AnsysEM\\v222\\Win64")
-sys.path.append(r"C:/Program Files/AnsysEM/v222/Win64/PythonFiles/DesktopPlugin")
+sys.path.append(r"C:\Program Files\ANSYS Inc\v251\AnsysEM\PythonFiles\DesktopPlugin")
 import math
 
 ############### export data from mat file (through pickle) ################
